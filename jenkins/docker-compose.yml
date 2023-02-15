@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  reverse_proxy:
+    container_name: local-proxy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8088:8088
+  local-sonar:
+    image: nginx
+    container_name: local-sonar
+    ports:
+      - 9000:9000
+  local-jenkins:
+    image: abrahamntd:Jenkins
+    container_name: local-jenkins
+    environment:
+      - "JENKINS_OPTS=--prefix=/jenkins"
+      - JENKINS_ADMIN_ID=admin
+      - JENKINS_ADMIN_PASSWORD=admin
+    ports:
+      - 8080:8080

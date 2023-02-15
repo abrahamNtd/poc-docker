@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  reverse_proxy:
+    container_name: local-proxy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  local-nginx:
+    image: nginx
+    container_name: local-nginx
+
+  local-apache:
+    image: httpd
+    container_name: local-apache

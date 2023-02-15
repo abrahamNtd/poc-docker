@@ -1,0 +1,5 @@
+mkdir -p ./volumes/sonarqube/data
+mkdir -p ./volumes/sonarqube/extensions
+mkdir -p ./volumes/sonarqube/logs
+mkdir -p ./volumes/postgresql/conf
+mkdir -p ./volumes/postgresql/data
